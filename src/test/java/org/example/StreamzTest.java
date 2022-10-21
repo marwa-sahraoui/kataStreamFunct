@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class StreamzTest {
     @Test
-    public void shouldReturn8ForGivenResultOfTableWhenFirstEelementis4(){
+    public void shouldReturn8ForGivenResultOfListWhenFirstEelements4(){
         //given
         Streamz streamz =new Streamz();
         List<Integer> values = Arrays.asList(1,2,3,4,5,6,7,8);
@@ -19,13 +19,35 @@ public class StreamzTest {
         assertThat(result).isEqualTo(8);
     }
 
-    public void shouldReturn20ForGivenResultOfTableWhenFirstEelementis10(){
+
+    @Test
+    public void shouldReturn20ForGivenResultOfListWhenFirstEelements10(){
         //given
         Streamz streamz =new Streamz();
         List<Integer> values = Arrays.asList(2,7,10,15,12,17);
         //when
         int result = streamz.getResult(values);
         //then
-        assertThat(result).isEqualTo(10);
+        assertThat(result).isEqualTo(20);
+    }
+    @Test
+    public void shouldReturn0ForGivenResultOfListAllElementIs2(){
+        //given
+        Streamz streamz =new Streamz();
+        List<Integer> values = Arrays.asList(2,2,2,2,2);
+        //when
+        int result = streamz.getResult(values);
+        //then
+        assertThat(result).isEqualTo(0);
+    }
+    @Test
+    public void shouldReturn20ForElementWith10(){
+        //given
+        Streamz streamz =new Streamz();
+        List<Integer> values = Arrays.asList(10,10,10,10,10);
+        //when
+        int result = streamz.getResult(values);
+        //then
+        assertThat(result).isEqualTo(20);
     }
 }
